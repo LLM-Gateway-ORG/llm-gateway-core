@@ -3,7 +3,7 @@ import os
 from base import AbstractVectorStore
 from langchain_community.vectorstores.chroma import Chroma
 
-from llmgateway.provider.enum import VectorStoreProviderEnum
+from llm_gateway_core.provider.enum import VectorStoreProviderEnum
 
 
 def get_vector_store(
