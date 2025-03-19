@@ -1,2 +1,2 @@
-from llmgateway import Chat
-from llmgateway.ingest import get_source_processor
+from llm_gateway_core import Chat
+from llm_gateway_core.ingest import get_source_processor
