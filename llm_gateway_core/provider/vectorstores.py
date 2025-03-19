@@ -1,6 +1,8 @@
-import os
+from typing import List
 
 from base import AbstractVectorStore
+from langchain_core.documents.base import Document
+from langchain_core.embeddings import Embeddings
 from langchain_community.vectorstores.chroma import Chroma
 
 from llm_gateway_core.provider.enum import VectorStoreProviderEnum
@@ -19,10 +21,14 @@ class ChromaVectorStore(AbstractVectorStore):
     Reference :- https://github.com/langchain-ai/langchain/issues/15944
     """
 
-    def __init__(self, dbpath, *kwargs):
-        dbpath = os.path.join(os.getcwd(), dbpath)
+    def __init__(self,collection: str, embeddings: Embeddings, *kwargs):
         self.db = Chroma(persist_directory=kwargs.get("persist_directory"))
         super().__init__()
+    
+    def persist(self, documents: List[Document]):
+        return 
 
-    def persist(self, documents):
+    def retrieve(self, ids: List[str]) -> List[Document]:
+        # Implement retrieval for Chroma
         pass
+
